@@ -24,7 +24,8 @@
           <v-card-text>
             <v-form>
               <v-text-field
-                label="username"
+                id="username"
+                label="Username"
                 name="username"
                 type="text"
               />
