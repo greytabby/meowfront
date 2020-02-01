@@ -40,7 +40,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" to="/signup">Signup</v-btn>
+            <v-btn text color="primary" to="/signup">Signup</v-btn>
             <v-btn color="primary">Login</v-btn>
           </v-card-actions>
         </v-card>
