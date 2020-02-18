@@ -28,6 +28,8 @@
                 label="Username"
                 name="username"
                 type="text"
+                v-model="username"
+                required
               />
 
               <v-text-field
@@ -35,13 +37,15 @@
                 label="Password"
                 name="password"
                 type="password"
+                v-model="password"
+                required
               />
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer />
             <v-btn text color="primary" to="/signup">Signup</v-btn>
-            <v-btn color="primary">Login</v-btn>
+            <v-btn color="primary" @click="handleSubmit">Login</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -50,6 +54,29 @@
 </template>
 
 <script>
-  export default {
+import { mapState, mapActions } from 'vuex'
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+    }
+  },
+  computed: {
+    ...mapState('auth', ['state'])
+  },
+  created() {
+    this.logout()
+  },
+  methods: {
+    ...mapActions('auth', ['login', 'logout']),
+    handleSubmit() {
+      const username = this
+      const password = this
+      if (username && password) {
+        this.login(username, password)
+      }
+    }
   }
+}
 </script>
